@@ -1,9 +1,8 @@
 - name:
-  hosts: myhosts
+  hosts: ciscorouters
   tasks:
-    - name: Ping hosts
-      ansible.builtin.ping:
-    
-    - name: Print Hello World Message
-      ansible.builtin.debug:
-        msg: Hello World
+    - name: Change hostname on Cisco Router
+      cisco.ios.ios_hostname:
+        config:
+          hostname: Router1
+        state: merged
